@@ -9,4 +9,9 @@
 		<name>全书网</name>
 		<serviceName>indi.scw.book.service.impl.QuanShuWangBookServiceImpl</serviceName>
 	</config>
+	<config>
+		<id>3</id>
+		<name>笔趣屋</name>
+		<serviceName>indi.scw.book.service.impl.BiQuWuBookServiceImpl</serviceName>
+	</config>
 </xml>

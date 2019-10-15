@@ -18,7 +18,7 @@ import org.jsoup.select.Elements;
 import scw.core.utils.StringUtils;
 import scw.net.http.HttpUtils;
 
-public class BiQuWuBookService implements BookService {
+public class BiQuWuBookServiceImpl implements BookService {
 
 	public PageList<Book> searchBook(String name, int page) throws Exception {
 		StringBuilder sb = new StringBuilder();
