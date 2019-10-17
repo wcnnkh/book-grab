@@ -1,5 +1,11 @@
 package indi.scw.book.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import indi.scw.book.pojo.Book;
 import indi.scw.book.pojo.BookChannel;
 import indi.scw.book.pojo.BookChannelConfig;
@@ -7,17 +13,10 @@ import indi.scw.book.pojo.Chapter;
 import indi.scw.book.pojo.PageList;
 import indi.scw.book.service.BookChannelService;
 import indi.scw.book.service.BookService;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import scw.beans.annotation.Service;
 import scw.core.Init;
 import scw.core.exception.NotFoundException;
-import scw.core.instance.InstanceUtils;
+import scw.core.instance.InstanceFactory;
 import scw.core.reflect.CloneUtils;
 import scw.core.utils.ConfigUtils;
 
@@ -25,17 +24,20 @@ import scw.core.utils.ConfigUtils;
 public class BookChannelServiceImpl implements BookChannelService, Init {
 	private Map<Integer, BookService> bookServiceMap = new HashMap<Integer, BookService>();
 	private Map<Integer, BookChannel> bookChannelMap = new LinkedHashMap<Integer, BookChannel>();
+	private InstanceFactory instanceFactory;
+
+	public BookChannelServiceImpl(InstanceFactory instanceFactory) {
+		this.instanceFactory = instanceFactory;
+	}
 
 	public void init() {
-		List<BookChannelConfig> list = ConfigUtils.xmlToList(
-				BookChannelConfig.class, "classpath:/book-channel.xml");
+		List<BookChannelConfig> list = ConfigUtils.xmlToList(BookChannelConfig.class, "classpath:/book-channel.xml");
 		for (BookChannelConfig config : list) {
-			if(config.isDisable()){
+			if (config.isDisable()) {
 				continue;
 			}
-			
-			bookServiceMap.put(config.getId(), (BookService) InstanceUtils
-					.newInstance(config.getServiceName()));
+
+			bookServiceMap.put(config.getId(), (BookService) instanceFactory.getInstance(config.getServiceName()));
 			bookChannelMap.put(config.getId(), CloneUtils.copy(config, BookChannel.class));
 		}
 	}
@@ -60,8 +62,7 @@ public class BookChannelServiceImpl implements BookChannelService, Init {
 		}
 	}
 
-	public PageList<Chapter> getChapterPageList(String bookId, int page,
-			int channelId) {
+	public PageList<Chapter> getChapterPageList(String bookId, int page, int channelId) {
 		try {
 			return getBookService(channelId).getChapterPageList(bookId, page);
 		} catch (Exception e) {
