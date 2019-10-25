@@ -3,7 +3,7 @@ package indi.scw.book.pojo;
 public class BookChannelConfig extends BookChannel {
 	private static final long serialVersionUID = 1L;
 	private String serviceName;
-	private boolean disable;//ÊÇ·ñ½ûÓÃ
+	private boolean disable;
 	
 	public String getServiceName() {
 		return serviceName;

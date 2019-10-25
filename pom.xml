@@ -4,6 +4,11 @@
 	<groupId>shuchaowen</groupId>
 	<artifactId>shuchaowen-book</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jsoup.version>1.12.1</jsoup.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -16,7 +21,7 @@
 		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
-			<version>1.12.1</version>
+			<version>${jsoup.version}</version>
 		</dependency>
 	</dependencies>
 

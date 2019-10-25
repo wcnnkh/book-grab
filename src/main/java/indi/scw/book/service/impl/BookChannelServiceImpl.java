@@ -49,7 +49,7 @@ public class BookChannelServiceImpl implements BookChannelService, Init {
 	private BookService getBookService(int channelId) {
 		BookService bookService = bookServiceMap.get(channelId);
 		if (bookService == null) {
-			throw new NotFoundException("ÕÒ²»µ½´Ë·şÎñ£º" + channelId);
+			throw new NotFoundException("æœªçŸ¥çš„æ¸ é“" + channelId);
 		}
 		return bookService;
 	}
