@@ -1,5 +1,10 @@
 package indi.scw.book.service.impl;
 
+import indi.scw.book.pojo.Book;
+import indi.scw.book.pojo.Chapter;
+import indi.scw.book.pojo.PageList;
+import indi.scw.book.service.BookService;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,14 +17,15 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import indi.scw.book.pojo.Book;
-import indi.scw.book.pojo.Chapter;
-import indi.scw.book.pojo.PageList;
-import indi.scw.book.service.BookService;
 import scw.core.utils.CollectionUtils;
+import scw.core.utils.XTime;
+import scw.data.file.AutoRefreshFileCache;
+import scw.data.file.HttpMessageCacheConvert;
+import scw.net.HttpMessage;
 import scw.net.http.HttpUtils;
 
-public class BiQuGeBookServiceImpl implements BookService {
+public class BiQuGeBookServiceImpl extends AutoRefreshFileCache implements
+		BookService {
 	private String searchBook;
 	private String queryKey;
 
@@ -28,6 +34,7 @@ public class BiQuGeBookServiceImpl implements BookService {
 	}
 
 	public BiQuGeBookServiceImpl(String searchBook, String queryKey) {
+		super((int) (XTime.ONE_HOUR / 1000L), new HttpMessageCacheConvert(true));
 		this.searchBook = searchBook;
 		this.queryKey = queryKey;
 	}
@@ -36,7 +43,8 @@ public class BiQuGeBookServiceImpl implements BookService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put(queryKey, name);
 		String host = HttpUtils.appendParameters(searchBook, map, "UTF-8");
-		Document document = Jsoup.connect(host).get();
+		HttpMessage httpMessage = get(host);
+		Document document = Jsoup.parse(httpMessage.toString());
 		Elements elements = document.select("#main div ul li");
 		List<Book> list = new ArrayList<Book>();
 		for (Element element : elements) {
@@ -54,8 +62,10 @@ public class BiQuGeBookServiceImpl implements BookService {
 		return new PageList<Book>(list, page, 1);
 	}
 
-	public PageList<Chapter> getChapterPageList(String bookId, int page) throws Exception {
-		Document document = Jsoup.connect(bookId).get();
+	public PageList<Chapter> getChapterPageList(String bookId, int page)
+			throws Exception {
+		HttpMessage httpMessage = get(bookId);
+		Document document = Jsoup.parse(httpMessage.toString());
 		Element element = document.selectFirst("#list dl");
 		if (element == null) {
 			return new PageList<Chapter>(null, page, 1);
@@ -85,7 +95,9 @@ public class BiQuGeBookServiceImpl implements BookService {
 	}
 
 	public String getChapterContent(String chapterId) throws Exception {
-		return Jsoup.connect(chapterId).get().selectFirst("#content").html();
+		HttpMessage httpMessage = get(chapterId);
+		return Jsoup.parse(httpMessage.toString()).selectFirst("#content")
+				.html();
 	}
 
 }
