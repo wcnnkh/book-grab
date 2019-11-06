@@ -5,15 +5,17 @@ import java.util.Map;
 
 import scw.net.http.HttpUtils;
 
-public class BiQuGeBookServiceImpl extends AbstractBiQuBookService {
-	public BiQuGeBookServiceImpl() {
-		super("https://www.biqugexx.com/index.php");
+public class BiQuTaBookServiceImpl extends AbstractBiQuBookService {
+
+	public BiQuTaBookServiceImpl() {
+		super("https://www.biquta.com/searchbook.php");
 	}
 
 	@Override
 	protected String getSearchBookUrl(String name, int page) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("name", name);
-		return HttpUtils.appendParameters(getBaseUri() + "?s=/web/index/search", map, "UTF-8");
+		map.put("keyword", name);
+		return HttpUtils.appendParameters(getBaseUri(), map, "UTF-8");
 	}
+
 }
