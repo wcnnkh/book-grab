@@ -2,15 +2,15 @@ package indi.scw.book.pojo;
 
 import java.io.Serializable;
 
-import scw.core.attribute.SimpleAttributes;
-
-public class Book extends SimpleAttributes<String> implements Serializable {
+public class Book implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String name;
 	private String titleImg;
 	private String blurb;
 	private String author;
+	private String lastUpdateTime;
+	private String lastChapter;
 
 	public String getId() {
 		return id;
@@ -50,5 +50,21 @@ public class Book extends SimpleAttributes<String> implements Serializable {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public String getLastUpdateTime() {
+		return lastUpdateTime;
+	}
+
+	public void setLastUpdateTime(String lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
+
+	public String getLastChapter() {
+		return lastChapter;
+	}
+
+	public void setLastChapter(String lastChapter) {
+		this.lastChapter = lastChapter;
 	}
 }

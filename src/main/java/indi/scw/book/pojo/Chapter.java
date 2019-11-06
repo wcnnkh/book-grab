@@ -2,9 +2,7 @@ package indi.scw.book.pojo;
 
 import java.io.Serializable;
 
-import scw.core.attribute.SimpleAttributes;
-
-public class Chapter extends SimpleAttributes<String> implements Serializable{
+public class Chapter implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String name;
