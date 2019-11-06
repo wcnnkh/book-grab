@@ -5,6 +5,7 @@ import indi.scw.book.pojo.BookChannel;
 import indi.scw.book.pojo.Chapter;
 import indi.scw.book.pojo.PageList;
 import indi.scw.book.service.BookChannelService;
+import indi.scw.book.service.impl.JsoupCacheManager;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ import scw.mvc.annotation.Controller;
 public class BookController {
 	@Autowired
 	private BookChannelService bookChannelService;
+	@Autowired
+	private JsoupCacheManager cacheManger;
 
 	@Controller(value="channel_list")
 	public List<BookChannel> channelList(){
@@ -34,5 +37,10 @@ public class BookController {
 	@Controller(value="chapter_content")
 	public String chapterContent(String chapterId, int channelId){
 		return bookChannelService.getChapterContent(chapterId, channelId);
+	}
+	
+	@Controller(value="delete_cache")
+	public void deleteCache(String key){
+		cacheManger.delete(key);
 	}
 }

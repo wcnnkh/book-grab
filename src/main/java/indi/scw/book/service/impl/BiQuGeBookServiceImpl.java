@@ -1,32 +1,29 @@
 package indi.scw.book.service.impl;
 
-import indi.scw.book.pojo.Book;
-import indi.scw.book.pojo.Chapter;
-import indi.scw.book.pojo.PageList;
-import indi.scw.book.service.BookService;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
+import indi.scw.book.pojo.Book;
+import indi.scw.book.pojo.Chapter;
+import indi.scw.book.pojo.PageList;
+import indi.scw.book.service.BookService;
+import scw.beans.annotation.Autowired;
 import scw.core.utils.CollectionUtils;
-import scw.core.utils.XTime;
-import scw.data.file.AutoRefreshFileCache;
-import scw.data.file.HttpMessageCacheConvert;
-import scw.net.HttpMessage;
 import scw.net.http.HttpUtils;
 
-public class BiQuGeBookServiceImpl extends AutoRefreshFileCache implements
+public class BiQuGeBookServiceImpl implements
 		BookService {
 	private static final String baseUrl = "https://www.biqugexx.com/index.php";
+	@Autowired
+	private JsoupCacheManager cacheManager;
 	private String searchBook;
 	private String queryKey;
 
@@ -35,14 +32,12 @@ public class BiQuGeBookServiceImpl extends AutoRefreshFileCache implements
 	}
 
 	public BiQuGeBookServiceImpl(String searchBook, String queryKey) {
-		super((int) (XTime.ONE_HOUR / 1000L), new HttpMessageCacheConvert());
 		this.searchBook = searchBook;
 		this.queryKey = queryKey;
 	}
 	
 	private Document getDocument(String url){
-		HttpMessage httpMessage = get(url);
-		Document document = Jsoup.parse(httpMessage.toString());
+		Document document = cacheManager.getDocument(url);
 		document.setBaseUri(baseUrl);
 		return document;
 	}
