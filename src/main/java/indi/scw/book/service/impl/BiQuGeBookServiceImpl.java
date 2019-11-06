@@ -34,7 +34,7 @@ public class BiQuGeBookServiceImpl extends AutoRefreshFileCache implements
 	}
 
 	public BiQuGeBookServiceImpl(String searchBook, String queryKey) {
-		super((int) (XTime.ONE_HOUR / 1000L), new HttpMessageCacheConvert(true));
+		super((int) (XTime.ONE_HOUR / 1000L), new HttpMessageCacheConvert());
 		this.searchBook = searchBook;
 		this.queryKey = queryKey;
 	}
