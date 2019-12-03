@@ -15,10 +15,10 @@ import indi.scw.book.service.BookChannelService;
 import indi.scw.book.service.BookService;
 import scw.beans.annotation.Service;
 import scw.core.Init;
-import scw.core.exception.NotFoundException;
 import scw.core.instance.InstanceFactory;
 import scw.core.reflect.CloneUtils;
 import scw.core.utils.ConfigUtils;
+import scw.lang.NotFoundException;
 
 @Service
 public class BookChannelServiceImpl implements BookChannelService, Init {
