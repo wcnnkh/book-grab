@@ -17,8 +17,8 @@ import scw.beans.annotation.Service;
 import scw.core.Init;
 import scw.core.instance.InstanceFactory;
 import scw.core.reflect.CloneUtils;
-import scw.core.utils.ConfigUtils;
 import scw.lang.NotFoundException;
+import scw.util.ConfigUtils;
 
 @Service
 public class BookChannelServiceImpl implements BookChannelService, Init {
