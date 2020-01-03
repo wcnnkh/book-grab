@@ -1,6 +1,6 @@
 package indi.scw.book;
 
-import scw.application.TomcatApplication;
+import scw.embed.TomcatApplication;
 
 public class BookApplication {
 	public static void main(String[] args) {
