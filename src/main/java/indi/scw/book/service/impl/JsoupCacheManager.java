@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 import scw.core.utils.XTime;
 import scw.data.file.AutoRefreshFileCache;
 import scw.data.file.HttpMessageCacheConvert;
-import scw.net.HttpMessage;
+import scw.net.message.HttpInputMessage;
 
 public final class JsoupCacheManager extends AutoRefreshFileCache {
 	protected JsoupCacheManager() {
@@ -16,8 +16,8 @@ public final class JsoupCacheManager extends AutoRefreshFileCache {
 	}
 
 	public Document getDocument(String url){
-		HttpMessage httpMessage = getAndTouch(url);
-		Document document = Jsoup.parse(httpMessage.toString());
+		HttpInputMessage httpInputMessage = getAndTouch(url);
+		Document document = Jsoup.parse(httpInputMessage.toString());
 		return document;
 	}
 	
