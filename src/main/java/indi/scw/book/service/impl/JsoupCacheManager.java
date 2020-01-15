@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 import scw.core.utils.XTime;
 import scw.data.file.AutoRefreshFileCache;
 import scw.data.file.ClientHttpResponseCacheConvert;
-import scw.net.http.ClientHttpResponse;
+import scw.net.http.client.ClientHttpResponse;
 
 public final class JsoupCacheManager extends AutoRefreshFileCache {
 	protected JsoupCacheManager() {
