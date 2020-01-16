@@ -1,14 +1,13 @@
 package indi.scw.book.controller;
 
+import java.util.List;
+
 import indi.scw.book.pojo.Book;
 import indi.scw.book.pojo.BookChannel;
 import indi.scw.book.pojo.Chapter;
 import indi.scw.book.pojo.PageList;
 import indi.scw.book.service.BookChannelService;
 import indi.scw.book.service.impl.JsoupCacheManager;
-
-import java.util.List;
-
 import scw.beans.annotation.Autowired;
 import scw.mvc.annotation.Controller;
 
