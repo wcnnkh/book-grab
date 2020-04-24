@@ -1,9 +1,9 @@
 package indi.scw.book;
 
-import scw.embed.TomcatApplication;
+import scw.application.MainApplication;
 
 public class BookApplication {
 	public static void main(String[] args) {
-		TomcatApplication.run(BookApplication.class);
+		MainApplication.run(BookApplication.class);
 	}
 }
