@@ -24,6 +24,10 @@ public abstract class AbstractBiQuBookService extends AbstractBookService {
 
 	public PageList<Book> searchBook(String name, int page) throws Exception {
 		Document document = getDocument(getSearchBookUrl(name, page));
+		if(document == null){
+			return null;
+		}
+		
 		Elements elements = document.select("#main div ul li");
 		List<Book> list = new ArrayList<Book>();
 		for (Element element : elements) {
@@ -45,6 +49,10 @@ public abstract class AbstractBiQuBookService extends AbstractBookService {
 
 	public PageList<Chapter> getChapterPageList(String bookId, int page) throws Exception {
 		Document document = getDocument(bookId);
+		if(document == null){
+			return null;
+		}
+		
 		Element element = document.selectFirst("#list dl");
 		if (element == null) {
 			return new PageList<Chapter>(null, page, 1);

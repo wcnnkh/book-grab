@@ -20,7 +20,9 @@ public abstract class AbstractBookService implements BookService{
 	
 	protected Document getDocument(String url) {
 		Document document = jsoupCacheManager.getDocument(url);
-		document.setBaseUri(baseUri);
+		if(document != null){
+			document.setBaseUri(baseUri);
+		}
 		return document;
 	}
 }
