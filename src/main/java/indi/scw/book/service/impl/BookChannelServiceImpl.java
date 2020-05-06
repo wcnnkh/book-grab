@@ -14,9 +14,9 @@ import indi.scw.book.pojo.PageList;
 import indi.scw.book.service.BookChannelService;
 import indi.scw.book.service.BookService;
 import scw.beans.annotation.Service;
+import scw.core.Copy;
 import scw.core.Init;
 import scw.core.instance.InstanceFactory;
-import scw.core.instance.InstanceUtils;
 import scw.lang.NotFoundException;
 import scw.util.ConfigUtils;
 
@@ -38,7 +38,7 @@ public class BookChannelServiceImpl implements BookChannelService, Init {
 			}
 
 			bookServiceMap.put(config.getId(), (BookService) instanceFactory.getInstance(config.getServiceName()));
-			bookChannelMap.put(config.getId(), InstanceUtils.copy(BookChannel.class, config));
+			bookChannelMap.put(config.getId(), Copy.copy(BookChannel.class, config));
 		}
 	}
 
