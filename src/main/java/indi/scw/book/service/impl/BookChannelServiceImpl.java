@@ -14,10 +14,10 @@ import indi.scw.book.pojo.PageList;
 import indi.scw.book.service.BookChannelService;
 import indi.scw.book.service.BookService;
 import scw.beans.annotation.Service;
-import scw.core.Copy;
 import scw.core.Init;
 import scw.core.instance.InstanceFactory;
 import scw.lang.NotFoundException;
+import scw.mapper.Copy;
 import scw.util.ConfigUtils;
 
 @Service
