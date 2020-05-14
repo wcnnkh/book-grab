@@ -3,7 +3,7 @@ package indi.scw.book.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import scw.net.client.http.HttpUtils;
+import scw.net.http.HttpUtils;
 
 public class BiQuTaBookServiceImpl extends AbstractBiQuBookService {
 
