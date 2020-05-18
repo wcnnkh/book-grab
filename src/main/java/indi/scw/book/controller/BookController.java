@@ -9,7 +9,7 @@ import indi.scw.book.pojo.PageList;
 import indi.scw.book.service.BookChannelService;
 import indi.scw.book.service.impl.JsoupCacheManager;
 import scw.beans.annotation.Autowired;
-import scw.net.http.server.mvc.annotation.Controller;
+import scw.mvc.annotation.Controller;
 
 @Controller(value="book")
 public class BookController {
