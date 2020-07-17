@@ -58,6 +58,9 @@ public class BookChannelServiceImpl implements BookChannelService, Init {
 		try {
 			return getBookService(channelId).searchBook(name, page);
 		} catch (Exception e) {
+			if(e instanceof RuntimeException){
+				throw (RuntimeException)e;
+			}
 			throw new RuntimeException(e);
 		}
 	}

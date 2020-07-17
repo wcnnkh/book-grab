@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>小说</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<style>
+			table{
+				width: 100%;
+			}
+			
+			button{
+				width: 100%;
+			}
+			
+			a{
+				display: block;
+				width: 100%;
+				height: 30px;
+				background-color: silver;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<input autocomplete="on" type="text" placeholder="请输入书籍名称" v-model="search" />
+				<select v-model="channelId">
+					<option :value="channel.id" v-for="channel in channelList">{{channel.name}}</option>
+				</select>
+			<button v-on:click="searchBook()" style="width: auto;">强制搜索</button>
+			<button v-on:click="searchBook()" style="width: auto;">搜索</button>
+			<hr/>
+			<a href="#chapter-bottom" id="chapter-top">到底部</a>
+			<div :hidden="status!=1">
+				<table border="1">
+					<tr>
+						<td>名称</td>
+					</tr>
+					<tr v-for="book in bookResult.list">
+						<td v-on:click="chapterInfo(book.id)">
+						{{book.name}}
+						</td>
+					</tr>
+				</table>
+				<select v-model="bookResult.page"  v-on:change="searchBook()">
+					<option :value="i" v-for="i in bookResult.maxPage">第{{i}}页</option>
+				</select>
+			</div>
+			<div :hidden="status!=2">
+				<table border="1">
+					<tr>
+						<td>名称</td>
+					</tr>
+					<tr v-for="(chapter, index) in chapterResult.list">
+						<td v-on:click="chapterContent(index)">
+							{{chapter.name}}
+						</td>
+					</tr>
+				</table>
+				<select v-model="chapterResult.page" v-on:change="chapterInfo(currentBookId)">
+					<option :value="i" v-for="i in chapterResult.maxPage">第{{i}}页</option>
+				</select>
+			</div>
+			<div :hidden="status!=3">
+				<h5 v-if="status==3">{{chapterResult.list[currentChapterIndex].name}}</h5>
+				<p v-html="content">
+				</p>
+				<button v-on:click="forceLoadBook()">强制刷新</button>
+				<hr />
+				<button v-on:click="chapterContent(currentChapterIndex + 1)">下一章</button>
+			</div>
+			<a href="#chapter-top" id="chapter-bottom">到顶部</a>
+		</div>
+		<script>
+			var host = "http://192.168.0.222:8077/book";
+			if(window.location.href.indexOf("abqba.com") != -1){
+				host = "http://abqba.com/book";
+			}
+			
+			host = "book/";
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					"bookResult": {
+						"page":1,
+						"maxPage":1
+					},
+					"channelId": 0,
+					"channelList": [],
+					"search": "",
+					"chapterResult":{
+						"page":1,
+						"maxPage":1
+					},
+					"currentChapterIndex":0,
+					"currentBookId":'',
+					"content":"",
+					"status":0
+				},
+				methods: {
+					toButtom:function(){
+						console.log(document.body.scrollHeight);
+						document.body.scrollTop=document.height - window.height;
+					},
+					searchBook: function() {
+						axios.get(host + "/search?name=" + this.search + "&page=" + this.bookResult.page + "&channelId=" + this.channelId)
+							.then(response => {
+								this.bookResult = response.data;
+								this.status = 1;
+								window.scrollTo(0,0);
+							})
+							.catch(function(error) { // 请求失败处理
+								console.log(error);
+							});
+					},
+					chapterInfo:function(bookId){
+						this.currentBookId = bookId;
+						axios.get(host + "/chapter_list?bookId=" + bookId + "&page=" + this.chapterResult.page + "&channelId=" + this.channelId)
+							.then(response => {
+								this.chapterResult = response.data;
+								this.status = 2;
+								window.scrollTo(0,0);
+							})
+							.catch(function(error) { // 请求失败处理
+								console.log(error);
+							});
+					},
+					chapterContent:function(index){
+						if(index >= this.chapterResult.list.length){
+							alert("已经是最后一章了");
+							return ;
+						}
+						
+						this.currentChapterIndex = index;
+						axios.get(host + "/chapter_content?chapterId=" + this.chapterResult.list[index].id + "&channelId=" + this.channelId)
+							.then(response => {
+								this.content = response.data;
+								this.status = 3;
+								window.scrollTo(0,0);
+							})
+							.catch(function(error) { // 请求失败处理
+								console.log(error);
+							});
+					},
+					
+					forceLoadBook:function(){
+						axios.get(host + "/delete_cache?key=" + this.chapterResult.list[this.currentChapterIndex].id)
+							.then(response => {
+								console.log(this.currentChapterIndex);
+								this.chapterContent(this.currentChapterIndex);
+							})
+							.catch(function(error) { // 请求失败处理
+								console.log(error);
+							});
+					}
+				},
+				created: function() {
+					var vm = this;
+					axios.get(host + "/channel_list")
+						.then(function(response) {
+							vm.channelList = response.data;
+							vm.channelId = response.data[0].id;
+						})
+						.catch(function(error) { // 请求失败处理
+							console.log(error);
+						});
+				}
+			})
+		</script>
+	</body>
+
+</html>
