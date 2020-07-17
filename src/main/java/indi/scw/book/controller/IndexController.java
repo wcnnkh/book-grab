@@ -12,6 +12,6 @@ public class IndexController {
 	
 	@Controller
 	public Page index(){
-		return pageFactory.getPage("index.html");
+		return pageFactory.getPage("/html/index.html");
 	}
 }
