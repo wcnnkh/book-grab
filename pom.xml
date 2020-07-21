@@ -13,7 +13,18 @@
 	<dependencies>
 		<dependency>
 			<groupId>shuchaowen</groupId>
-			<artifactId>shuchaowen-integration</artifactId>
+			<artifactId>shuchaowen-mvc</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>shuchaowen</groupId>
+			<artifactId>shuchaowen-embed</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>shuchaowen</groupId>
+			<artifactId>shuchaowen-freemarker</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
