@@ -1,21 +1,24 @@
-package indi.scw.book.pojo;
+package pers.scw.book.pojo;
 
 import java.io.Serializable;
 
-public class Chapter implements Serializable{
+public class BookChannel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private int id;
 	private String name;
-	
-	public String getId() {
+
+	public int getId() {
 		return id;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

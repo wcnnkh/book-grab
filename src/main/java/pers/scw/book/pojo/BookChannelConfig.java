@@ -1,4 +1,4 @@
-package indi.scw.book.pojo;
+package pers.scw.book.pojo;
 
 public class BookChannelConfig extends BookChannel {
 	private static final long serialVersionUID = 1L;

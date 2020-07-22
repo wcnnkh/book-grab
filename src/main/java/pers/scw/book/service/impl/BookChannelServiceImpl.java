@@ -1,4 +1,4 @@
-package indi.scw.book.service.impl;
+package pers.scw.book.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,13 +6,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import indi.scw.book.pojo.Book;
-import indi.scw.book.pojo.BookChannel;
-import indi.scw.book.pojo.BookChannelConfig;
-import indi.scw.book.pojo.Chapter;
-import indi.scw.book.pojo.PageList;
-import indi.scw.book.service.BookChannelService;
-import indi.scw.book.service.BookService;
+import pers.scw.book.pojo.Book;
+import pers.scw.book.pojo.BookChannel;
+import pers.scw.book.pojo.BookChannelConfig;
+import pers.scw.book.pojo.Chapter;
+import pers.scw.book.pojo.PageList;
+import pers.scw.book.service.BookChannelService;
+import pers.scw.book.service.BookService;
 import scw.beans.Init;
 import scw.beans.annotation.Service;
 import scw.core.instance.InstanceFactory;

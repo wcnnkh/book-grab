@@ -1,4 +1,4 @@
-package indi.scw.book.service.impl;
+package pers.scw.book.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import indi.scw.book.pojo.Book;
-import indi.scw.book.pojo.Chapter;
-import indi.scw.book.pojo.PageList;
+import pers.scw.book.pojo.Book;
+import pers.scw.book.pojo.Chapter;
+import pers.scw.book.pojo.PageList;
 import scw.core.utils.CollectionUtils;
 
 public abstract class AbstractBiQuBookService extends AbstractBookService {

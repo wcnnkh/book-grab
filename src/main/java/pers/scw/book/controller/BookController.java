@@ -1,13 +1,13 @@
-package indi.scw.book.controller;
+package pers.scw.book.controller;
 
 import java.util.List;
 
-import indi.scw.book.pojo.Book;
-import indi.scw.book.pojo.BookChannel;
-import indi.scw.book.pojo.Chapter;
-import indi.scw.book.pojo.PageList;
-import indi.scw.book.service.BookChannelService;
-import indi.scw.book.service.impl.JsoupCacheManager;
+import pers.scw.book.pojo.Book;
+import pers.scw.book.pojo.BookChannel;
+import pers.scw.book.pojo.Chapter;
+import pers.scw.book.pojo.PageList;
+import pers.scw.book.service.BookChannelService;
+import pers.scw.book.service.impl.JsoupCacheManager;
 import scw.beans.annotation.Autowired;
 import scw.mvc.annotation.Controller;
 

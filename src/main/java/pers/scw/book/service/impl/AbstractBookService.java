@@ -1,8 +1,8 @@
-package indi.scw.book.service.impl;
+package pers.scw.book.service.impl;
 
 import org.jsoup.nodes.Document;
 
-import indi.scw.book.service.BookService;
+import pers.scw.book.service.BookService;
 import scw.beans.annotation.Autowired;
 
 public abstract class AbstractBookService implements BookService{

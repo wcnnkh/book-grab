@@ -1,4 +1,4 @@
-package indi.scw.book.pojo;
+package pers.scw.book.pojo;
 
 import java.io.Serializable;
 

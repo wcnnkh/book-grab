@@ -1,11 +1,11 @@
-package indi.scw.book.service;
-
-import indi.scw.book.pojo.Book;
-import indi.scw.book.pojo.BookChannel;
-import indi.scw.book.pojo.Chapter;
-import indi.scw.book.pojo.PageList;
+package pers.scw.book.service;
 
 import java.util.List;
+
+import pers.scw.book.pojo.Book;
+import pers.scw.book.pojo.BookChannel;
+import pers.scw.book.pojo.Chapter;
+import pers.scw.book.pojo.PageList;
 
 public interface BookChannelService {
 	List<BookChannel> getBookChannelList();

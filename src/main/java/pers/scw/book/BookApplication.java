@@ -1,4 +1,4 @@
-package indi.scw.book;
+package pers.scw.book;
 
 import scw.application.MainApplication;
 

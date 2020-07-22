@@ -1,4 +1,4 @@
-package indi.scw.book.service.impl;
+package pers.scw.book.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
