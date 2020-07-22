@@ -1,10 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>shuchaowen</groupId>
+	<parent>
+		<groupId>shuchaowen</groupId>
+		<artifactId>shuchaowen</artifactId>
+		<version>1.0.0</version>
+	</parent>
 	<artifactId>shuchaowen-book</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jsoup.version>1.12.1</jsoup.version>
@@ -14,18 +18,15 @@
 		<dependency>
 			<groupId>shuchaowen</groupId>
 			<artifactId>shuchaowen-mvc</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>shuchaowen</groupId>
 			<artifactId>shuchaowen-embed</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>shuchaowen</groupId>
 			<artifactId>shuchaowen-freemarker</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
@@ -51,4 +52,12 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>scw</id>
+			<name>scw</name>
+			<url>http://maven.shuchaowen.com</url>
+		</repository>
+	</repositories>
 </project>
