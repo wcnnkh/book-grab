@@ -13,15 +13,15 @@ import pers.scw.book.pojo.Chapter;
 import pers.scw.book.pojo.PageList;
 import pers.scw.book.service.BookChannelService;
 import pers.scw.book.service.BookService;
-import scw.beans.Init;
 import scw.beans.annotation.Service;
+import scw.beans.annotation.Value;
+import scw.beans.ioc.value.XmlFileToBeansValueProcesser;
 import scw.core.instance.InstanceFactory;
 import scw.lang.NotFoundException;
 import scw.mapper.Copy;
-import scw.util.ConfigUtils;
 
 @Service
-public class BookChannelServiceImpl implements BookChannelService, Init {
+public class BookChannelServiceImpl implements BookChannelService {
 	private Map<Integer, BookService> bookServiceMap = new HashMap<Integer, BookService>();
 	private Map<Integer, BookChannel> bookChannelMap = new LinkedHashMap<Integer, BookChannel>();
 	private InstanceFactory instanceFactory;
@@ -30,9 +30,9 @@ public class BookChannelServiceImpl implements BookChannelService, Init {
 		this.instanceFactory = instanceFactory;
 	}
 
-	public void init() {
-		List<BookChannelConfig> list = ConfigUtils.xmlToList(BookChannelConfig.class, "classpath:/book-channel.xml");
-		for (BookChannelConfig config : list) {
+	@Value(value = "classpath:/book-channel.xml", processer = XmlFileToBeansValueProcesser.class)
+	public synchronized void setBookChannelConfigList(List<BookChannelConfig> bookChannelConfigs) {
+		for (BookChannelConfig config : bookChannelConfigs) {
 			if (config.isDisable()) {
 				continue;
 			}
@@ -58,8 +58,8 @@ public class BookChannelServiceImpl implements BookChannelService, Init {
 		try {
 			return getBookService(channelId).searchBook(name, page);
 		} catch (Exception e) {
-			if(e instanceof RuntimeException){
-				throw (RuntimeException)e;
+			if (e instanceof RuntimeException) {
+				throw (RuntimeException) e;
 			}
 			throw new RuntimeException(e);
 		}
