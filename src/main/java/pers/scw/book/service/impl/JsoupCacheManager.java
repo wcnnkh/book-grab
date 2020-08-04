@@ -7,20 +7,19 @@ import org.jsoup.nodes.Document;
 
 import scw.core.utils.XTime;
 import scw.data.file.AutoRefreshFileCache;
-import scw.data.file.SerializableHttpInputMessageCacheConvert;
-import scw.net.message.SerializableInputMessage;
+import scw.data.file.HttpGetBodyCacheConvert;
 
 public final class JsoupCacheManager extends AutoRefreshFileCache {
 	protected JsoupCacheManager() {
-		super((int) (XTime.ONE_DAY * 30), new SerializableHttpInputMessageCacheConvert());
+		super((int) (XTime.ONE_DAY/1000 * 30), new HttpGetBodyCacheConvert());
 	}
 
 	public Document getDocument(String url) {
-		SerializableInputMessage message = getAndTouch(url);
-		if(message == null){
+		String body = getAndTouch(url);
+		if(body == null){
 			return null;
 		}
-		Document document = Jsoup.parse(message.getTextBody());
+		Document document = Jsoup.parse(body);
 		return document;
 	}
 
