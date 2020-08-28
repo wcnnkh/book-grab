@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>shuchaowen</groupId>
-		<artifactId>shuchaowen</artifactId>
+		<groupId>scw</groupId>
+		<artifactId>scw</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>shuchaowen-book</artifactId>
+	<artifactId>scw-book</artifactId>
 	<version>0.0.1</version>
 
 	<properties>
@@ -16,13 +16,13 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>shuchaowen</groupId>
-			<artifactId>shuchaowen-mvc</artifactId>
+			<groupId>scw</groupId>
+			<artifactId>scw-mvc</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>shuchaowen</groupId>
-			<artifactId>shuchaowen-embed</artifactId>
+			<groupId>scw</groupId>
+			<artifactId>scw-embed</artifactId>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
