@@ -1,7 +1,7 @@
 使用方式:
 ========
 ---------
-1.下载源码，执行maven install 或下载[scw-book-0.0.1.jar](http://maven.shuchaowen.com/scw/scw-book/0.0.1/scw-book-0.0.1.jar)
+1.下载源码，执行maven install 或下载[scw-book-0.0.1.jar](http://maven.shuchaowen.com/pers/scw/scw-book/0.0.1/scw-book-0.0.1.jar)
 ---------
 2.执行上一步得到的jar包(例如：java -jar scw-book-0.0.1.jar 或 java -jar scw-book-0.0.1.jar -p {端口号})
 ---------
