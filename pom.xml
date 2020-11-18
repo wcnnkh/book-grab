@@ -18,12 +18,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>scw</groupId>
-			<artifactId>scw-mvc</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>scw</groupId>
-			<artifactId>scw-embed</artifactId>
+			<artifactId>scw-tomcat</artifactId>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
