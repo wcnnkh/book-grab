@@ -1,6 +1,6 @@
 package pers.scw.book;
 
-import scw.application.MainApplication;
+import scw.boot.support.MainApplication;
 
 public class BookApplication {
 	public static void main(String[] args) {

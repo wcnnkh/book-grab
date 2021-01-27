@@ -16,7 +16,7 @@ import pers.scw.book.service.BookService;
 import scw.beans.annotation.Service;
 import scw.beans.annotation.Value;
 import scw.beans.ioc.value.XmlFileToBeansValueProcesser;
-import scw.core.instance.InstanceFactory;
+import scw.instance.InstanceFactory;
 import scw.lang.NotFoundException;
 import scw.mapper.Copy;
 
