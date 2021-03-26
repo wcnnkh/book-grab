@@ -3,6 +3,7 @@ package pers.scw.book.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import scw.codec.support.URLCodec;
 import scw.net.uri.UriUtils;
 
 public class BiQuTaBookServiceImpl extends AbstractBiQuBookService {
@@ -15,7 +16,7 @@ public class BiQuTaBookServiceImpl extends AbstractBiQuBookService {
 	protected String getSearchBookUrl(String name, int page) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("keyword", name);
-		return UriUtils.appendQueryParams(getBaseUri(), map, "UTF-8");
+		return UriUtils.appendQueryParams(getBaseUri(), map, URLCodec.UTF_8);
 	}
 
 }

@@ -6,10 +6,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import scw.core.utils.XTime;
-import scw.data.file.AutoRefreshFileCache;
+import scw.data.file.AutoRefreshDirectoryStorage;
 import scw.data.file.HttpGetBodyCacheConvert;
 
-public final class JsoupCacheManager extends AutoRefreshFileCache {
+public final class JsoupCacheManager extends AutoRefreshDirectoryStorage {
 	protected JsoupCacheManager() {
 		super((int) (XTime.ONE_DAY/1000 * 30), new HttpGetBodyCacheConvert());
 	}
