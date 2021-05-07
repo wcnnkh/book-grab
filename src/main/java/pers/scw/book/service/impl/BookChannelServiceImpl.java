@@ -15,7 +15,7 @@ import pers.scw.book.service.BookChannelService;
 import pers.scw.book.service.BookService;
 import scw.beans.annotation.Service;
 import scw.beans.annotation.Value;
-import scw.beans.ioc.value.XmlFileToBeansValueProcesser;
+import scw.beans.ioc.value.XmlToBeanMapValueProcesser;
 import scw.instance.InstanceFactory;
 import scw.lang.NotFoundException;
 import scw.mapper.Copy;
@@ -30,7 +30,7 @@ public class BookChannelServiceImpl implements BookChannelService {
 		this.instanceFactory = instanceFactory;
 	}
 
-	@Value(value = "classpath:/book-channel.xml", processer = XmlFileToBeansValueProcesser.class)
+	@Value(value = "classpath:/book-channel.xml", processer = XmlToBeanMapValueProcesser.class)
 	public synchronized void setBookChannelConfigList(List<BookChannelConfig> bookChannelConfigs) {
 		for (BookChannelConfig config : bookChannelConfigs) {
 			if (config.isDisable()) {
