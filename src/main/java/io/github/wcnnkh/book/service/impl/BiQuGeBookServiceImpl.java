@@ -1,10 +1,10 @@
-package pers.scw.book.service.impl;
+package io.github.wcnnkh.book.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import scw.codec.support.URLCodec;
-import scw.net.uri.UriUtils;
+import io.basc.framework.codec.support.URLCodec;
+import io.basc.framework.net.uri.UriUtils;
 
 public class BiQuGeBookServiceImpl extends AbstractBiQuBookService {
 	public BiQuGeBookServiceImpl() {

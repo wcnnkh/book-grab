@@ -1,6 +1,6 @@
-package pers.scw.book.pojo;
+package io.github.wcnnkh.book.pojo;
 
-import scw.orm.annotation.PrimaryKey;
+import io.basc.framework.orm.annotation.PrimaryKey;
 
 public class BookChannelConfig extends BookChannel {
 	private static final long serialVersionUID = 1L;

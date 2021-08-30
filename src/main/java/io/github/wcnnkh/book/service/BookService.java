@@ -1,8 +1,8 @@
-package pers.scw.book.service;
+package io.github.wcnnkh.book.service;
 
-import pers.scw.book.pojo.Book;
-import pers.scw.book.pojo.Chapter;
-import pers.scw.book.pojo.PageList;
+import io.github.wcnnkh.book.pojo.Book;
+import io.github.wcnnkh.book.pojo.Chapter;
+import io.github.wcnnkh.book.pojo.PageList;
 
 public interface BookService {
 	PageList<Book> searchBook(String name, int page) throws Exception;

@@ -1,15 +1,15 @@
-package pers.scw.book.controller;
+package io.github.wcnnkh.book.controller;
 
 import java.util.List;
 
-import pers.scw.book.pojo.Book;
-import pers.scw.book.pojo.BookChannel;
-import pers.scw.book.pojo.Chapter;
-import pers.scw.book.pojo.PageList;
-import pers.scw.book.service.BookChannelService;
-import pers.scw.book.service.impl.JsoupCacheManager;
-import scw.beans.annotation.Autowired;
-import scw.mvc.annotation.Controller;
+import io.basc.framework.beans.annotation.Autowired;
+import io.basc.framework.mvc.annotation.Controller;
+import io.github.wcnnkh.book.pojo.Book;
+import io.github.wcnnkh.book.pojo.BookChannel;
+import io.github.wcnnkh.book.pojo.Chapter;
+import io.github.wcnnkh.book.pojo.PageList;
+import io.github.wcnnkh.book.service.BookChannelService;
+import io.github.wcnnkh.book.service.impl.JsoupCacheManager;
 
 @Controller(value="book")
 public class BookController {

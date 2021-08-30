@@ -1,11 +1,11 @@
-package pers.scw.book.service;
+package io.github.wcnnkh.book.service;
 
 import java.util.List;
 
-import pers.scw.book.pojo.Book;
-import pers.scw.book.pojo.BookChannel;
-import pers.scw.book.pojo.Chapter;
-import pers.scw.book.pojo.PageList;
+import io.github.wcnnkh.book.pojo.Book;
+import io.github.wcnnkh.book.pojo.BookChannel;
+import io.github.wcnnkh.book.pojo.Chapter;
+import io.github.wcnnkh.book.pojo.PageList;
 
 public interface BookChannelService {
 	List<BookChannel> getBookChannelList();

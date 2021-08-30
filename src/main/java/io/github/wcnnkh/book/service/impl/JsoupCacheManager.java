@@ -1,13 +1,13 @@
-package pers.scw.book.service.impl;
+package io.github.wcnnkh.book.service.impl;
 
 import java.io.File;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import scw.core.utils.XTime;
-import scw.data.file.AutoRefreshDirectoryStorage;
-import scw.data.file.HttpGetBodyCacheConvert;
+import io.basc.framework.data.file.AutoRefreshDirectoryStorage;
+import io.basc.framework.data.file.HttpGetBodyCacheConvert;
+import io.basc.framework.util.XTime;
 
 public final class JsoupCacheManager extends AutoRefreshDirectoryStorage {
 	protected JsoupCacheManager() {

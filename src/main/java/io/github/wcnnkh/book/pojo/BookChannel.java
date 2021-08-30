@@ -1,4 +1,4 @@
-package pers.scw.book.pojo;
+package io.github.wcnnkh.book.pojo;
 
 import java.io.Serializable;
 

@@ -1,9 +1,9 @@
-package pers.scw.book.service.impl;
+package io.github.wcnnkh.book.service.impl;
 
 import org.jsoup.nodes.Document;
 
-import pers.scw.book.service.BookService;
-import scw.beans.annotation.Autowired;
+import io.basc.framework.beans.annotation.Autowired;
+import io.github.wcnnkh.book.service.BookService;
 
 public abstract class AbstractBookService implements BookService{
 	private final String baseUri;

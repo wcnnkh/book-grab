@@ -1,6 +1,6 @@
-package pers.scw.book;
+package io.github.wcnnkh.book;
 
-import scw.boot.support.MainApplication;
+import io.basc.framework.boot.support.MainApplication;
 
 public class BookApplication {
 	public static void main(String[] args) {

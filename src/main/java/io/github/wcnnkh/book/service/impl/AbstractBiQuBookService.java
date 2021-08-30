@@ -1,4 +1,4 @@
-package pers.scw.book.service.impl;
+package io.github.wcnnkh.book.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import pers.scw.book.pojo.Book;
-import pers.scw.book.pojo.Chapter;
-import pers.scw.book.pojo.PageList;
-import scw.core.utils.CollectionUtils;
+import io.basc.framework.util.CollectionUtils;
+import io.github.wcnnkh.book.pojo.Book;
+import io.github.wcnnkh.book.pojo.Chapter;
+import io.github.wcnnkh.book.pojo.PageList;
 
 public abstract class AbstractBiQuBookService extends AbstractBookService {
 

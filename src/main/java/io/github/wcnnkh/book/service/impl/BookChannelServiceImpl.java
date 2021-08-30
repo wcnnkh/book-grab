@@ -1,4 +1,4 @@
-package pers.scw.book.service.impl;
+package io.github.wcnnkh.book.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,19 +6,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import pers.scw.book.pojo.Book;
-import pers.scw.book.pojo.BookChannel;
-import pers.scw.book.pojo.BookChannelConfig;
-import pers.scw.book.pojo.Chapter;
-import pers.scw.book.pojo.PageList;
-import pers.scw.book.service.BookChannelService;
-import pers.scw.book.service.BookService;
-import scw.beans.annotation.Service;
-import scw.beans.annotation.Value;
-import scw.beans.ioc.value.ResourceValueProcesser;
-import scw.instance.InstanceFactory;
-import scw.lang.NotFoundException;
-import scw.mapper.Copy;
+import io.basc.framework.beans.annotation.Service;
+import io.basc.framework.beans.annotation.Value;
+import io.basc.framework.beans.ioc.value.ResourceValueProcesser;
+import io.basc.framework.factory.InstanceFactory;
+import io.basc.framework.lang.NotFoundException;
+import io.basc.framework.mapper.Copy;
+import io.github.wcnnkh.book.pojo.Book;
+import io.github.wcnnkh.book.pojo.BookChannel;
+import io.github.wcnnkh.book.pojo.BookChannelConfig;
+import io.github.wcnnkh.book.pojo.Chapter;
+import io.github.wcnnkh.book.pojo.PageList;
+import io.github.wcnnkh.book.service.BookChannelService;
+import io.github.wcnnkh.book.service.BookService;
 
 @Service
 public class BookChannelServiceImpl implements BookChannelService {
