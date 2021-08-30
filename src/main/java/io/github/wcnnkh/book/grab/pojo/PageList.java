@@ -1,4 +1,4 @@
-package io.github.wcnnkh.book.pojo;
+package io.github.wcnnkh.book.grab.pojo;
 
 import java.io.Serializable;
 import java.util.List;

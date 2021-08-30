@@ -1,4 +1,4 @@
-package io.github.wcnnkh.book.pojo;
+package io.github.wcnnkh.book.grab.pojo;
 
 import io.basc.framework.orm.annotation.PrimaryKey;
 

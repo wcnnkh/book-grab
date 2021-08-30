@@ -1,11 +1,11 @@
-package io.github.wcnnkh.book.service;
+package io.github.wcnnkh.book.grab.service;
 
 import java.util.List;
 
-import io.github.wcnnkh.book.pojo.Book;
-import io.github.wcnnkh.book.pojo.BookChannel;
-import io.github.wcnnkh.book.pojo.Chapter;
-import io.github.wcnnkh.book.pojo.PageList;
+import io.github.wcnnkh.book.grab.pojo.Book;
+import io.github.wcnnkh.book.grab.pojo.BookChannel;
+import io.github.wcnnkh.book.grab.pojo.Chapter;
+import io.github.wcnnkh.book.grab.pojo.PageList;
 
 public interface BookChannelService {
 	List<BookChannel> getBookChannelList();

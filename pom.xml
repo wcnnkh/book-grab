@@ -7,7 +7,7 @@
 		<version>1.8.0</version>
 	</parent>
 	<groupId>io.github.wcnnkh</groupId>
-	<artifactId>scw-book</artifactId>
+	<artifactId>book-grab</artifactId>
 	<version>0.0.1</version>
 
 	<properties>
@@ -42,7 +42,7 @@
 					<archive>
 						<manifest>
 							<!-- 主程序入口类 -->
-							<mainClass>pers.scw.book.BookApplication</mainClass>
+							<mainClass>io.github.wcnnkh.book.grab.BookApplication</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

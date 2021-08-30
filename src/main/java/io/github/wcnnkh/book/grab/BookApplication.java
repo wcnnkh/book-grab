@@ -1,4 +1,4 @@
-package io.github.wcnnkh.book;
+package io.github.wcnnkh.book.grab;
 
 import io.basc.framework.boot.support.MainApplication;
 

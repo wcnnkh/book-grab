@@ -2,11 +2,11 @@
 	<config>
 		<id>1</id>
 		<name>笔趣阁</name>
-		<serviceName>io.github.wcnnkh.book.service.impl.BiQuGeBookServiceImpl</serviceName>
+		<serviceName>io.github.wcnnkh.book.grab.service.impl.BiQuGeBookServiceImpl</serviceName>
 	</config>
 	<config>
 		<id>2</id>
 		<name>笔趣塔</name>
-		<serviceName>io.github.wcnnkh.book.service.impl.BiQuTaBookServiceImpl</serviceName>
+		<serviceName>io.github.wcnnkh.book.grab.service.impl.BiQuTaBookServiceImpl</serviceName>
 	</config>
 </xml>

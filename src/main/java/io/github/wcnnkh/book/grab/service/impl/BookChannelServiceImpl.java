@@ -1,4 +1,4 @@
-package io.github.wcnnkh.book.service.impl;
+package io.github.wcnnkh.book.grab.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,13 +12,13 @@ import io.basc.framework.beans.ioc.value.ResourceValueProcesser;
 import io.basc.framework.factory.InstanceFactory;
 import io.basc.framework.lang.NotFoundException;
 import io.basc.framework.mapper.Copy;
-import io.github.wcnnkh.book.pojo.Book;
-import io.github.wcnnkh.book.pojo.BookChannel;
-import io.github.wcnnkh.book.pojo.BookChannelConfig;
-import io.github.wcnnkh.book.pojo.Chapter;
-import io.github.wcnnkh.book.pojo.PageList;
-import io.github.wcnnkh.book.service.BookChannelService;
-import io.github.wcnnkh.book.service.BookService;
+import io.github.wcnnkh.book.grab.pojo.Book;
+import io.github.wcnnkh.book.grab.pojo.BookChannel;
+import io.github.wcnnkh.book.grab.pojo.BookChannelConfig;
+import io.github.wcnnkh.book.grab.pojo.Chapter;
+import io.github.wcnnkh.book.grab.pojo.PageList;
+import io.github.wcnnkh.book.grab.service.BookChannelService;
+import io.github.wcnnkh.book.grab.service.BookService;
 
 @Service
 public class BookChannelServiceImpl implements BookChannelService {
