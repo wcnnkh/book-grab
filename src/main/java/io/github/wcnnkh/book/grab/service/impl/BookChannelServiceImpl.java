@@ -38,7 +38,7 @@ public class BookChannelServiceImpl implements BookChannelService {
 			}
 
 			bookServiceMap.put(config.getId(), (BookService) instanceFactory.getInstance(config.getServiceName()));
-			bookChannelMap.put(config.getId(), Copy.copy(BookChannel.class, config));
+			bookChannelMap.put(config.getId(), Copy.copy(config, BookChannel.class));
 		}
 	}
 
