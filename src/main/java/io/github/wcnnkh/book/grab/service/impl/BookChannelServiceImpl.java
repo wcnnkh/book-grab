@@ -8,7 +8,6 @@ import java.util.Map;
 
 import io.basc.framework.beans.annotation.Service;
 import io.basc.framework.beans.annotation.Value;
-import io.basc.framework.beans.ioc.value.ResourceValueProcesser;
 import io.basc.framework.factory.InstanceFactory;
 import io.basc.framework.lang.NotFoundException;
 import io.basc.framework.mapper.Copy;
@@ -30,7 +29,7 @@ public class BookChannelServiceImpl implements BookChannelService {
 		this.instanceFactory = instanceFactory;
 	}
 
-	@Value(value = "classpath:/book-channel.xml", processer = ResourceValueProcesser.class)
+	@Value(value = "classpath:/book-channel.xml")
 	public synchronized void setBookChannelConfigList(List<BookChannelConfig> bookChannelConfigs) {
 		for (BookChannelConfig config : bookChannelConfigs) {
 			if (config.isDisable()) {
