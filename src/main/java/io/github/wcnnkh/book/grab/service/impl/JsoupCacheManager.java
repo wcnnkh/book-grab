@@ -1,22 +1,22 @@
 package io.github.wcnnkh.book.grab.service.impl;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import io.basc.framework.data.file.AutoRefreshDirectoryStorage;
 import io.basc.framework.data.file.HttpGetBodyCacheConvert;
-import io.basc.framework.util.TimeUtils;
 
 public final class JsoupCacheManager extends AutoRefreshDirectoryStorage {
 	protected JsoupCacheManager() {
-		super((TimeUtils.ONE_DAY/1000 * 30), new HttpGetBodyCacheConvert());
+		super(30, TimeUnit.DAYS, new HttpGetBodyCacheConvert());
 	}
 
 	public Document getDocument(String url) {
-		String body = getAndTouch(url);
-		if(body == null){
+		String body = getAndTouch(String.class, url);
+		if (body == null) {
 			return null;
 		}
 		Document document = Jsoup.parse(body);
