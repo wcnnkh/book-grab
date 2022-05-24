@@ -7,11 +7,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import io.basc.framework.data.file.AutoRefreshDirectoryStorage;
-import io.basc.framework.data.file.HttpGetBodyCacheConvert;
+import io.basc.framework.http.HttpUtils;
 
 public final class JsoupCacheManager extends AutoRefreshDirectoryStorage {
 	protected JsoupCacheManager() {
-		super(30, TimeUnit.DAYS, new HttpGetBodyCacheConvert());
+		super(30, TimeUnit.DAYS, (url) -> HttpUtils.getHttpClient().get(String.class, url).getBody());
 	}
 
 	public Document getDocument(String url) {
