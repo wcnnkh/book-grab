@@ -2,7 +2,7 @@ package io.github.wcnnkh.book.grab.service.impl;
 
 import org.jsoup.nodes.Document;
 
-import io.basc.framework.beans.annotation.Autowired;
+import io.basc.framework.context.ioc.annotation.Autowired;
 import io.github.wcnnkh.book.grab.service.BookService;
 
 public abstract class AbstractBookService implements BookService{

@@ -2,7 +2,7 @@ package io.github.wcnnkh.book.grab.controller;
 
 import java.util.List;
 
-import io.basc.framework.beans.annotation.Autowired;
+import io.basc.framework.context.ioc.annotation.Autowired;
 import io.basc.framework.web.pattern.annotation.RequestMapping;
 import io.github.wcnnkh.book.grab.pojo.Book;
 import io.github.wcnnkh.book.grab.pojo.BookChannel;

@@ -6,8 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.basc.framework.beans.annotation.Service;
-import io.basc.framework.beans.annotation.Value;
+import io.basc.framework.context.annotation.Service;
+import io.basc.framework.context.ioc.annotation.Value;
 import io.basc.framework.factory.InstanceFactory;
 import io.basc.framework.lang.NotFoundException;
 import io.basc.framework.mapper.Copy;

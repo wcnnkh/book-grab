@@ -11,7 +11,7 @@ import io.basc.framework.http.HttpUtils;
 
 public final class JsoupCacheManager extends AutoRefreshDirectoryStorage {
 	protected JsoupCacheManager() {
-		super(30, TimeUnit.DAYS, (url) -> HttpUtils.getHttpClient().get(String.class, url).getBody());
+		super(30, TimeUnit.DAYS, (url) -> HttpUtils.getClient().get(String.class, url).getBody());
 	}
 
 	public Document getDocument(String url) {
