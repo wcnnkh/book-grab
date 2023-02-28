@@ -8,13 +8,13 @@ import io.basc.framework.net.uri.UriUtils;
 
 public class BiQuGeBookServiceImpl extends AbstractBiQuBookService {
 	public BiQuGeBookServiceImpl() {
-		super("https://www.biqugexx.com/index.php");
+		super("https://www.xbiqugexx.com/search.php");
 	}
 
 	@Override
 	protected String getSearchBookUrl(String name, int page) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("name", name);
+		map.put("keyword", name);
 		return UriUtils.appendQueryParams(getBaseUri() + "?s=/web/index/search", map, URLCodec.UTF_8);
 	}
 }
