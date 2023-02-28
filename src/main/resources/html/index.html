@@ -82,7 +82,7 @@
 				host = "http://abqba.com/book";
 			}
 			
-			host = "book/";
+			host = "book";
 			var vm = new Vue({
 				el: "#app",
 				data: {
@@ -108,7 +108,7 @@
 						document.body.scrollTop=document.height - window.height;
 					},
 					searchBook: function() {
-						axios.get(host + "/search?name=" + this.search + "&page=" + this.bookResult.page + "&channelId=" + this.channelId)
+						axios.get(host + "/search?name=" + this.search + "&page=" + ((this.bookResult.page) | 1) + "&channelId=" + this.channelId)
 							.then(response => {
 								this.bookResult = response.data;
 								this.status = 1;
@@ -120,7 +120,7 @@
 					},
 					chapterInfo:function(bookId){
 						this.currentBookId = bookId;
-						axios.get(host + "/chapter_list?bookId=" + bookId + "&page=" + this.chapterResult.page + "&channelId=" + this.channelId)
+						axios.get(host + "/chapter_list?bookId=" + bookId + "&page=" + ((this.bookResult.page) | 1) + "&channelId=" + this.channelId)
 							.then(response => {
 								this.chapterResult = response.data;
 								this.status = 2;
@@ -161,8 +161,10 @@
 				},
 				created: function() {
 					var vm = this;
+					console.log("created:" + host);
 					axios.get(host + "/channel_list")
 						.then(function(response) {
+							console.log(response);
 							vm.channelList = response.data;
 							vm.channelId = response.data[0].id;
 						})
