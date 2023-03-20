@@ -1,10 +1,12 @@
 package io.github.wcnnkh.book.grab;
 
+import io.basc.framework.boot.annotation.BootApplication;
 import io.basc.framework.boot.support.MainApplication;
 import io.basc.framework.context.annotation.Bean;
 import io.basc.framework.http.client.SimpleClientHttpRequestFactory;
 import io.basc.framework.web.resource.StaticResourceRegistry;
 
+@BootApplication
 public class BookApplication {
 	public static void main(String[] args) {
 		SimpleClientHttpRequestFactory.truseAll();
